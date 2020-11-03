@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply from: '../sharedconfigs-include.gradle'
+
+dependencies {
+    implementation project(":network-core")
+    implementation project(":domain-core")
+    implementation project(":domain-movies")
+
+    implementation kotlinDependencies.kotlinStdLib
+    implementation developmentDependencies.timber
+
+    implementation kotlinDependencies.coroutinesCore
+    implementation kotlinDependencies.coroutinesAndroid
+
+    implementation diDependencies.dagger
+    kapt diDependencies.daggerCompiler
+
+    implementation dataDependencies.moshi
+    implementation dataDependencies.room
+    kapt dataDependencies.roomCompiler
+
+    androidTestImplementation androidTestDependencies.testRunner
+    androidTestImplementation androidTestDependencies.testRules
+    androidTestImplementation androidTestDependencies.supportAnnotations
+    androidTestImplementation androidTestDependencies.testRoom, {
+        exclude group: 'com.android.support'
+    }
+    androidTestImplementation androidTestDependencies.testArchCore
+    androidTestImplementation androidTestDependencies.androidXJunit
+    testImplementation project(":tests-common")
+}

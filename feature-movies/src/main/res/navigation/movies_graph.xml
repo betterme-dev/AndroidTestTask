@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movies_graph"
+    app:startDestination="@id/moviesFragment">
+
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="app.bettermetesttask.movies.sections.MoviesFragment"
+        tools:layout="@layout/movies_fragment">
+
+        <deepLink app:uri="@string/movies_deep_link" />
+    </fragment>
+</navigation>

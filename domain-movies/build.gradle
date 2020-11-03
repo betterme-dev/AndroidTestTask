@@ -1,0 +1,13 @@
+apply from: '../sharedconfigs-include-java.gradle'
+
+dependencies {
+    implementation project (":domain-core")
+
+    implementation kotlinDependencies.kotlinStdLib
+
+    implementation diDependencies.javaxInject
+    implementation diDependencies.dagger
+    kapt diDependencies.daggerCompiler
+
+    testImplementation project (":tests-common")
+}

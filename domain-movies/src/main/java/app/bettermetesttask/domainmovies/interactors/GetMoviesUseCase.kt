@@ -1,0 +1,3 @@
+package app.bettermetesttask.domainmovies.interactors
+
+class GetMoviesUseCase

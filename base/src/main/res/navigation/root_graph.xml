@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_graph"
+    app:startDestination="@+id/fragmentSplash">
+
+    <include app:graph="@navigation/movies_graph" />
+
+    <fragment
+        android:id="@+id/fragmentSplash"
+        android:name="app.bettermetesttask.sections.splash.SplashFragment">
+
+        <action
+            android:id="@+id/action_show_movies"
+            app:destination="@+id/movies_graph"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/root_graph"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+</navigation>

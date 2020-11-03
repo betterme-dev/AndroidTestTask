@@ -1,0 +1,32 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+test {
+    useJUnitPlatform()
+    ignoreFailures = true
+    // path to the directory in which results will be stored (prefix connected- + modulename)
+    reports.junitXml.setDestination(file("../build/connected-$project.name"))
+    compileKotlin.kotlinOptions.jvmTarget = jvmTargetVer
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = jvmTargetVer
+}
+
+allprojects {
+    tasks.withType(JavaCompile).all {
+        options.compilerArgs += '-Adagger.gradle.incremental=enabled'
+        // Disable build warnings for CI build
+        options.compilerArgs += [
+                '-Xlint:-deprecation',
+                "-Xlint:unchecked"
+        ]
+    }
+
+    afterEvaluate {
+        extensions.findByName('kapt')?.arguments {
+            arg("dagger.gradle.incremental", "enabled")
+        }
+    }
+}

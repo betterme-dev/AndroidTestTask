@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'
+apply from: '../sharedconfigs-include.gradle'
+
+dependencies {
+    implementation kotlinDependencies.kotlinStdLib
+
+    implementation androidXDependencies.appCompat
+    implementation androidXDependencies.lifecycleExtensions
+
+    implementation testDependencies.jUnitJupiter
+    implementation testDependencies.jupiterEngine
+
+    api androidTestDependencies.testArchCore
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="color_primary">#212121</color>
+    <color name="color_primary_variant">#000000</color>
+    <color name="color_on_primary">#FFFFFF</color>
+    <color name="color_secondary">#2962FF</color>
+    <color name="color_secondary_variant">#0039CB</color>
+    <color name="color_on_secondary">#FFFFFF</color>
+    <color name="color_error">#F44336</color>
+    <color name="color_on_error">#FFFFFF</color>
+    <color name="color_surface">#FFFFFF</color>
+    <color name="color_on_surface">#000000</color>
+    <color name="color_background">#FAFAFA</color>
+    <color name="color_on_background">#000000</color>
+    <color name="color_status_bar">#000000</color>
+    <color name="main_black">#121212</color>
+    <color name="almost_black">#272727</color>
+    <color name="clear_blue">#4FB8FF</color>
+    <color name="almost_blue">#4FB8FF</color>
+    <color name="ceramic">#E0E0E0</color>
+    <color name="ceramic_35">#59E0E0E0</color>
+    <color name="bright_pink">#F581FF</color>
+    <color name="sandy_orange">#FFB388</color>
+    <color name="pure_gold">#F2994A</color>
+    <color name="pure_red">#E63946</color>
+    <color name="material_ripple_dark">#33ffffff</color>
+
+    100% — FF
+    95% — F2
+    90% — E6
+    85% — D9
+    80% — CC
+    75% — BF
+    70% — B3
+    65% — A6
+    60% — 99
+    55% — 8C
+    50% — 80
+    45% — 73
+    40% — 66
+    35% — 59
+    30% — 4D
+    25% — 40
+    20% — 33
+    15% — 26
+    10% — 1A
+    5% — 0D
+    0% — 00
+</resources>

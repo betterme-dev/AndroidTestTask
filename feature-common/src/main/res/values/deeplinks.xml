@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Movies link -->
+    <string name="movies_deep_link" translatable="false">"https://bettermetesttask.app/movies"</string>
+
+    <!-- Favorites link -->
+    <string name="favorites_deep_link" translatable="false">"https://bettermetesttask.app/favorites"</string>
+
+    <!-- Details link -->
+    <string name="details_deep_link" translatable="false">"https://bettermetesttask.app/details"</string>
+</resources>

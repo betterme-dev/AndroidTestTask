@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply from: '../sharedconfigs-include.gradle'
+
+dependencies {
+    implementation project(":domain-core")
+
+    implementation kotlinDependencies.kotlinStdLib
+
+    implementation androidXDependencies.appCompat
+    implementation androidXDependencies.design
+    implementation androidXDependencies.constraintLayout
+    implementation androidXDependencies.androidKtx
+    implementation androidXDependencies.navigationFragment
+    implementation androidXDependencies.lifecycleExtensions
+    implementation androidXDependencies.lifecycle
+
+    implementation uiDependencies.glide
+    kapt uiDependencies.glideCompiler
+
+    implementation diDependencies.dagger
+    kapt diDependencies.daggerCompiler
+    implementation diDependencies.daggerAndroid
+    implementation diDependencies.daggerAndroidSupport
+    kapt diDependencies.daggerAndroidProcessor
+
+    implementation rxDependencies.rxJava
+    implementation rxDependencies.rxAndroid
+
+    implementation developmentDependencies.threeTenABP
+    implementation developmentDependencies.timber
+
+    testImplementation project(":tests-common")
+}

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AndroidTestTask</string>
+
+    <!-- Common errors -->
+    <string name="error_no_internet">"No access to Internet, check your connection!"</string>
+    <string name="error_unknown">"Oops! Something went wrong, try again later!"</string>
+
+    <!-- Splash screen -->
+    <string name="splash_title">Welcome to BetterMe test task!</string>
+
+    <!-- Movies screens -->
+    <string name="movies_title">Hello from movies fragment</string>
+
+</resources>

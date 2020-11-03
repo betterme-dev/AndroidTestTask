@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+apply from: '../sharedconfigs-include.gradle'
+
+android {
+    def serverUrl = loadServerUrl()
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "API_ENDPOINT", "$serverUrl"
+        }
+        beta {
+            buildConfigField "String", "API_ENDPOINT", "$serverUrl"
+        }
+        release {
+            buildConfigField "String", "API_ENDPOINT", "$serverUrl"
+        }
+    }
+}
+
+dependencies {
+    implementation project(":domain-core")
+
+    implementation kotlinDependencies.kotlinStdLib
+
+    implementation androidXDependencies.androidKtx
+
+    implementation diDependencies.dagger
+    kapt diDependencies.daggerCompiler
+    implementation diDependencies.daggerAndroid
+
+    implementation dataDependencies.moshi
+    implementation dataDependencies.okHttp
+    implementation dataDependencies.okHttpInterceptor
+
+    implementation developmentDependencies.threeTenABP
+
+    api dataDependencies.retrofit
+    api dataDependencies.retrofitRxJavaAdapter
+    api dataDependencies.retrofitMoshiConverter
+
+    implementation developmentDependencies.stetho
+    implementation developmentDependencies.stethoOkHttp
+
+    debugImplementation developmentDependencies.chucker
+    betaImplementation developmentDependencies.chucker
+    releaseImplementation developmentDependencies.chuckerNoOp
+
+    testImplementation project(":tests-common")
+}
+
+String loadServerUrl() {
+    //Default value
+    def serverUrl = '"https://api.themoviedb.org/3/"'
+
+    task(runProgram) {
+        if (project.hasProperty("url")) {
+            serverUrl = url
+        }
+    }
+
+    return serverUrl
+}
