@@ -1,27 +1,23 @@
 package app.bettermetesttask.datamovies.repository.stores
 
 import app.bettermetesttask.datamovies.database.MoviesDatabase
+import app.bettermetesttask.datamovies.database.dao.MoviesDao
 import app.bettermetesttask.datamovies.database.entities.MovieEntity
 import javax.inject.Inject
 
-interface MoviesLocalStore {
-
-    fun getMovies(): List<MovieEntity>
-
-    fun getMovie(id: Int): MovieEntity
-
-}
-
-class MoviesLocalStoreImpl @Inject constructor(
+class MoviesLocalStore @Inject constructor(
     private val database: MoviesDatabase
-) : MoviesLocalStore {
+) {
 
-    override fun getMovies(): List<MovieEntity> {
-        TODO("Not yet implemented")
+    private val moviesDao: MoviesDao
+        get() = database.getMoviesDao()
+
+    suspend fun getMovies(): List<MovieEntity> {
+        return moviesDao.selectMovies()
     }
 
-    override fun getMovie(id: Int): MovieEntity {
-        TODO("Not yet implemented")
+    suspend fun getMovie(id: Int): MovieEntity? {
+        return moviesDao.selectMovieById(id).firstOrNull()
     }
 
 }
