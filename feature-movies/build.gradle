@@ -1,12 +1,21 @@
 apply plugin: 'com.android.library'
 apply from: '../sharedconfigs-include.gradle'
 
+android {
+    buildFeatures {
+        viewBinding true
+        compose = true
+    }
+}
+
 dependencies {
     implementation project(":domain-core")
+    implementation project(":domain-movies")
 
     implementation project(":feature-common")
 
     implementation kotlinDependencies.kotlinStdLib
+    implementation kotlinDependencies.coroutinesCore
 
     implementation androidXDependencies.appCompat
     implementation androidXDependencies.design

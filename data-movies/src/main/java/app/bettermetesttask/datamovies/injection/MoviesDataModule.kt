@@ -5,7 +5,7 @@ import androidx.room.Room
 import app.bettermetesttask.datamovies.database.DB_NAME
 import app.bettermetesttask.datamovies.database.MoviesDatabase
 import app.bettermetesttask.datamovies.repository.MoviesRepositoryImpl
-import app.bettermetesttask.domainmovies.repoistory.MoviesRepository
+import app.bettermetesttask.domainmovies.repository.MoviesRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

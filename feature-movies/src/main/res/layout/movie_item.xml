@@ -38,9 +38,11 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnLike"
             tools:text="Once Upon a Time in Hollywood" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -51,31 +53,19 @@
             android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:maxLines="10"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/titleTv"
             app:layout_constraintStart_toEndOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@id/titleTv"
             tools:text="Rick, a washed-out actor, and Cliff, his stunt double, struggle to recapture fame and success in 1960s Los Angeles. Meanwhile, living next door to Rick is Sharon Tate and her husband Roman Polanski." />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/shareBtn"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/descriptionTv"
-            tools:text="Share" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/bookmarkBtn"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintStart_toEndOf="@id/shareBtn"
-            app:layout_constraintTop_toBottomOf="@id/descriptionTv"
-            tools:text="Bookmark" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:id="@+id/btnLike"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/ic_favorite_not_liked"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
