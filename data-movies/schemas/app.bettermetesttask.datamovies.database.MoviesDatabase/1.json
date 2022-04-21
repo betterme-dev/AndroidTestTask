@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "cb1a0eaf13d66b0ec4c889d83dd3113a",
+    "identityHash": "67b47211c444afa6e0aeabd6298ce54d",
     "entities": [
       {
         "tableName": "MoviesTable",
@@ -41,12 +41,32 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "LikedMovieEntry",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`movie_id` INTEGER NOT NULL, PRIMARY KEY(`movie_id`))",
+        "fields": [
+          {
+            "fieldPath": "movieId",
+            "columnName": "movie_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "movie_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cb1a0eaf13d66b0ec4c889d83dd3113a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '67b47211c444afa6e0aeabd6298ce54d')"
     ]
   }
 }

@@ -119,6 +119,7 @@ dependencies {
     implementation dataDependencies.retrofitMoshiConverter
 
     implementation dataDependencies.room
+    kapt dataDependencies.roomCompiler
 
     testImplementation project(":tests-common")
     testImplementation project(":tests-android-common")

@@ -1,27 +1,38 @@
 package app.bettermetesttask.datamovies.repository.stores
 
 import app.bettermetesttask.datamovies.database.MoviesDatabase
+import app.bettermetesttask.datamovies.database.dao.MoviesDao
+import app.bettermetesttask.datamovies.database.entities.LikedMovieEntity
 import app.bettermetesttask.datamovies.database.entities.MovieEntity
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-interface MoviesLocalStore {
-
-    fun getMovies(): List<MovieEntity>
-
-    fun getMovie(id: Int): MovieEntity
-
-}
-
-class MoviesLocalStoreImpl @Inject constructor(
+class MoviesLocalStore @Inject constructor(
     private val database: MoviesDatabase
-) : MoviesLocalStore {
+) {
 
-    override fun getMovies(): List<MovieEntity> {
-        TODO("Not yet implemented")
+    private val moviesDao: MoviesDao
+        get() = database.getMoviesDao()
+
+    suspend fun getMovies(): List<MovieEntity> {
+        return moviesDao.selectMovies()
     }
 
-    override fun getMovie(id: Int): MovieEntity {
-        TODO("Not yet implemented")
+    suspend fun getMovie(id: Int): MovieEntity {
+        return moviesDao.selectMovieById(id).first()
     }
 
+    suspend fun likeMovie(id: Int) {
+        moviesDao.insertLikedEntry(LikedMovieEntity(id))
+    }
+
+    suspend fun dislikeMovie(id: Int) {
+        moviesDao.removeLikedEntry(id)
+    }
+
+    fun observeLikedMoviesIds(): Flow<List<Int>> {
+        return moviesDao.selectLikedEntries().map { movieIdsFlow -> movieIdsFlow.map { it.movieId } }
+    }
 }

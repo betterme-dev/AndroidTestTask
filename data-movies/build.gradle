@@ -1,6 +1,12 @@
 apply plugin: 'com.android.library'
 apply from: '../sharedconfigs-include.gradle'
 
+android {
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
 dependencies {
     implementation project(":network-core")
     implementation project(":domain-core")
