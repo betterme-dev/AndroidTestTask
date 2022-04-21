@@ -4,7 +4,6 @@ apply from: '../sharedconfigs-include.gradle'
 android {
     buildFeatures {
         viewBinding true
-        compose = true
     }
 }
 
