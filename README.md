@@ -8,17 +8,17 @@ Create the application which allows user to review the list of ongoing movies an
 
 #### Technical requirements
 
-[] Provide proper logic for movies persistence (there are two sources: remote and local) and
+1. Provide proper logic for movies persistence (there are two sources: remote and local) and
  retrieval (you might be interested in `MoviesRepository`), cover this logic with unit tests.
 
-[] There are pieces of code in this project which make some smell, some of them make this project
+2. There are pieces of code in this project which make some smell, some of them make this project
  not work properly. Even though, it's compiling.
 
-[] Make sure, the movies list is displayed properly, and favorites functionality works fine as well.
+3. Make sure, the movies list is displayed properly, and favorites functionality works fine as well.
 
-[] Provide error handling where it's needed (wrap exceptions, provide error placeholders on the UI layer, etc).
+4. Provide error handling where it's needed (wrap exceptions, provide error placeholders on the UI layer, etc).
 
-[] Implement movie details screen / dialog / bottom sheet.
+5. Implement movie details screen / dialog / bottom sheet.
 
 #### Notes
 
