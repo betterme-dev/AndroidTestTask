@@ -25,6 +25,7 @@ dependencies {
     implementation androidXDependencies.lifecycle
 
     implementation uiDependencies.glide
+    implementation 'androidx.room:room-common:2.5.2'
     kapt uiDependencies.glideCompiler
 
     implementation diDependencies.dagger

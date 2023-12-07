@@ -15,12 +15,12 @@ ext {
     coroutinesVer = '1.4.0'
 
     // Architecture components
-    roomVer = '2.2.5'
+    roomVer = '2.5.2'
     lifecycleVer = "2.2.0"
 
     // DI
     javaXInjectVer = '1'
-    daggerVer = '2.29.1'
+    daggerVer = '2.47'
 
     // Reactive Extensions
     rxJava2Ver = '2.2.20'

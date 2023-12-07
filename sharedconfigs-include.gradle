@@ -1,7 +1,7 @@
 apply plugin: "de.mannodermaus.android-junit5"
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android-extensions'
 
 /**
  * To avoid code duplication all common android modules related setup is done here.
@@ -23,12 +23,16 @@ apply plugin: 'kotlin-android-extensions'
 ext.isCiServer = System.getenv().containsKey("CI_BUILD")
 
 android {
+
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         buildToolsVersion buildToolsVer
         minSdkVersion minSdkVer
         targetSdkVersion targetSdkVer
         compileSdkVersion compileSdkVer
-        versionName rootProject.extensions.getByName("ext")["versionName"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         javaCompileOptions {
@@ -38,7 +42,7 @@ android {
                         "room.incremental"     : "true",
                         "room.expandProjection": "true"
                 ]
-                includeCompileClasspath = true
+//                includeCompileClasspath = true
             }
         }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -46,21 +50,14 @@ android {
     }
 
     buildTypes {
-        debug {
-            debuggable true
-        }
         beta {
-            debuggable true
-        }
-        release {
-            debuggable false
         }
     }
 
     // Forcing proper java version across all the builds
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     if (gradle.startParameter.taskNames
@@ -74,7 +71,7 @@ android {
     }
 
     // Enabling kotlin view binding in adapters
-    androidExtensions.experimental = true
+//    androidExtensions.experimental = true
 
     // Setting reports location for each module and using junit platform
     testOptions {
