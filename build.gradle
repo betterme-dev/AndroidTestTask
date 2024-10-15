@@ -16,7 +16,7 @@ buildscript {
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
         classpath "de.mannodermaus.gradle.plugins:android-junit5:$jUnit5Ver"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationComponentVer"

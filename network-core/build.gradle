@@ -3,6 +3,7 @@ apply from: '../sharedconfigs-include.gradle'
 
 android {
     def serverUrl = loadServerUrl()
+    namespace 'app.bettermetesttask.networkcore'
 
     buildTypes {
         debug {

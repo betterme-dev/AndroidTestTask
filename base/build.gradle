@@ -69,6 +69,7 @@ android {
             option("-Xmaxerrs", 500)
         }
     }
+    namespace 'app.bettermetesttask'
 }
 
 dependencies {
