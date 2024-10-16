@@ -53,6 +53,13 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+
     if (gradle.startParameter.taskNames
             .collect { item -> item.contains("UnitTestKotlin") }
             .contains(true)) {
