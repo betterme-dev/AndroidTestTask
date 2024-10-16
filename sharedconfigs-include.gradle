@@ -47,11 +47,6 @@ android {
 
     }
 
-    buildTypes {
-        beta {
-        }
-    }
-
     // Forcing proper java version across all the builds
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17

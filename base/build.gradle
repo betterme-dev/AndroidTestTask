@@ -102,7 +102,6 @@ dependencies {
     implementation developmentDependencies.stethoOkHttp
 
     debugImplementation developmentDependencies.chucker
-    betaImplementation developmentDependencies.chucker
     releaseImplementation developmentDependencies.chuckerNoOp
     implementation developmentDependencies.timber
     implementation developmentDependencies.threeTenABP
