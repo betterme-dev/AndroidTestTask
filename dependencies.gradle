@@ -12,10 +12,10 @@ ext {
     workManagerVer = '2.4.0'
 
     // Coroutines
-    coroutinesVer = '1.4.0'
+    coroutinesVer = '1.9.0'
 
     // Architecture components
-    roomVer = '2.5.2'
+    roomVer = '2.6.1'
     lifecycleVer = "2.2.0"
 
     // DI
