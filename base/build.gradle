@@ -38,12 +38,6 @@ android {
         }
     }
 
-    dexOptions {
-        preDexLibraries = false
-        jumboMode = true
-        javaMaxHeapSize "4g"
-    }
-
     packagingOptions {
         // Multiple libs contain this file -> cause build error
         exclude 'LICENSE.txt'

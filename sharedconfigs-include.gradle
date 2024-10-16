@@ -92,16 +92,9 @@ android {
 
 allprojects {
     tasks.withType(JavaCompile).all {
-        options.compilerArgs += '-Adagger.gradle.incremental=enabled'
         options.compilerArgs += [
                 '-Xlint:-deprecation',
                 "-Xlint:unchecked"
         ]
-    }
-
-    afterEvaluate {
-        extensions.findByName('kapt')?.arguments {
-            arg("dagger.gradle.incremental", "enabled")
-        }
     }
 }
