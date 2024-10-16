@@ -5,7 +5,7 @@ buildscript {
     ext.targetSdkVer = 34
     ext.compileSdkVer = 34
     ext.jUnit5Ver = '1.9.3.0'
-    ext.navigationComponentVer = '2.6.0-alpha09'
+    ext.navigationComponentVer = '2.8.2'
     ext.jvmTargetVer = '17'
 
     repositories {
