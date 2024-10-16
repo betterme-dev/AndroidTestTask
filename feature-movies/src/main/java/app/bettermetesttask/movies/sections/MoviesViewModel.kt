@@ -30,7 +30,7 @@ class MoviesViewModel @Inject constructor(
     fun loadMovies() {
         GlobalScope.launch {
             observeMoviesUseCase()
-                .collectLatest { result ->
+                .collect { result ->
                     if (result is Result.Success) {
                         moviesMutableFlow.emit(MoviesState.Loaded(result.data))
                         adapter.submitList(result.data)

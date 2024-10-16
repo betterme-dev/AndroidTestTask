@@ -1,7 +1,6 @@
 apply plugin: "de.mannodermaus.android-junit5"
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-//apply plugin: 'kotlin-android-extensions'
 
 /**
  * To avoid code duplication all common android modules related setup is done here.
@@ -42,7 +41,6 @@ android {
                         "room.incremental"     : "true",
                         "room.expandProjection": "true"
                 ]
-//                includeCompileClasspath = true
             }
         }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -69,9 +67,6 @@ android {
     compileOptions {
         kotlinOptions.jvmTarget = jvmTargetVer
     }
-
-    // Enabling kotlin view binding in adapters
-//    androidExtensions.experimental = true
 
     // Setting reports location for each module and using junit platform
     testOptions {
