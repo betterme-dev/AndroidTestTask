@@ -2,6 +2,12 @@ apply plugin: 'java-library'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-kapt'
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 test {
     useJUnitPlatform()
     ignoreFailures = true
@@ -16,17 +22,10 @@ compileTestKotlin {
 
 allprojects {
     tasks.withType(JavaCompile).all {
-        options.compilerArgs += '-Adagger.gradle.incremental=enabled'
         // Disable build warnings for CI build
         options.compilerArgs += [
                 '-Xlint:-deprecation',
                 "-Xlint:unchecked"
         ]
-    }
-
-    afterEvaluate {
-        extensions.findByName('kapt')?.arguments {
-            arg("dagger.gradle.incremental", "enabled")
-        }
     }
 }

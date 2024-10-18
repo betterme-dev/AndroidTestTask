@@ -13,10 +13,7 @@ import app.bettermetesttask.featurecommon.utils.views.gone
 import app.bettermetesttask.featurecommon.utils.views.visible
 import app.bettermetesttask.movies.R
 import app.bettermetesttask.movies.databinding.MoviesFragmentBinding
-import kotlinx.android.synthetic.main.movies_fragment.progressBar
-import kotlinx.android.synthetic.main.movies_fragment.rvList
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -67,19 +64,21 @@ class MoviesFragment : Fragment(R.layout.movies_fragment), Injectable {
     }
 
     private fun renderMoviesState(state: MoviesState) {
-        when (state) {
-            MoviesState.Loading -> {
-                rvList.gone()
-                progressBar.visible()
-            }
-            is MoviesState.Loaded -> {
-                progressBar.gone()
-                rvList.visible()
-            }
-            else -> {
-                // no op
-                progressBar.gone()
-                rvList.gone()
+        with(binding) {
+            when (state) {
+                MoviesState.Loading -> {
+                    rvList.gone()
+                    progressBar.visible()
+                }
+                is MoviesState.Loaded -> {
+                    progressBar.gone()
+                    rvList.visible()
+                }
+                else -> {
+                    // no op
+                    progressBar.gone()
+                    rvList.gone()
+                }
             }
         }
     }

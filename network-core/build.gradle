@@ -3,6 +3,7 @@ apply from: '../sharedconfigs-include.gradle'
 
 android {
     def serverUrl = loadServerUrl()
+    namespace 'app.bettermetesttask.networkcore'
 
     buildTypes {
         debug {
@@ -42,7 +43,6 @@ dependencies {
     implementation developmentDependencies.stethoOkHttp
 
     debugImplementation developmentDependencies.chucker
-    betaImplementation developmentDependencies.chucker
     releaseImplementation developmentDependencies.chuckerNoOp
 
     testImplementation project(":tests-common")

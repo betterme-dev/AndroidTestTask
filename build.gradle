@@ -1,22 +1,22 @@
 buildscript {
-    ext.kotlinVer = '1.4.10'
-    ext.buildToolsVer = '30.0.1'
-    ext.minSdkVer = 23
-    ext.targetSdkVer = 30
-    ext.compileSdkVer = 30
-    ext.jUnit5Ver = '1.6.2.0'
-    ext.navigationComponentVer = '2.3.1'
-    ext.jvmTargetVer = '1.8'
+    ext.kotlinVer = '2.0.21'
+    ext.buildToolsVer = '34.0.0'
+    ext.minSdkVer = 28
+    ext.targetSdkVer = 34
+    ext.compileSdkVer = 34
+    ext.jUnit5Ver = '1.9.3.0'
+    ext.navigationComponentVer = '2.8.2'
+    ext.jvmTargetVer = '17'
 
     repositories {
         google()
         jcenter()
+        maven { url 'https://storage.googleapis.com/r8-releases/raw' }
         maven { url "https://jitpack.io" }
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
+        classpath 'com.android.tools.build:gradle:8.6.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
         classpath "de.mannodermaus.gradle.plugins:android-junit5:$jUnit5Ver"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationComponentVer"

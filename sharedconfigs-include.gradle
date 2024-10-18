@@ -1,7 +1,6 @@
 apply plugin: "de.mannodermaus.android-junit5"
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 
 /**
  * To avoid code duplication all common android modules related setup is done here.
@@ -23,12 +22,16 @@ apply plugin: 'kotlin-android-extensions'
 ext.isCiServer = System.getenv().containsKey("CI_BUILD")
 
 android {
+
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         buildToolsVersion buildToolsVer
         minSdkVersion minSdkVer
         targetSdkVersion targetSdkVer
         compileSdkVersion compileSdkVer
-        versionName rootProject.extensions.getByName("ext")["versionName"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         javaCompileOptions {
@@ -38,30 +41,24 @@ android {
                         "room.incremental"     : "true",
                         "room.expandProjection": "true"
                 ]
-                includeCompileClasspath = true
             }
         }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
-    buildTypes {
-        debug {
-            debuggable true
-        }
-        beta {
-            debuggable true
-        }
-        release {
-            debuggable false
+    // Forcing proper java version across all the builds
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
         }
     }
 
-    // Forcing proper java version across all the builds
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 
     if (gradle.startParameter.taskNames
             .collect { item -> item.contains("UnitTestKotlin") }
@@ -72,9 +69,6 @@ android {
     compileOptions {
         kotlinOptions.jvmTarget = jvmTargetVer
     }
-
-    // Enabling kotlin view binding in adapters
-    androidExtensions.experimental = true
 
     // Setting reports location for each module and using junit platform
     testOptions {
@@ -100,16 +94,9 @@ android {
 
 allprojects {
     tasks.withType(JavaCompile).all {
-        options.compilerArgs += '-Adagger.gradle.incremental=enabled'
         options.compilerArgs += [
                 '-Xlint:-deprecation',
                 "-Xlint:unchecked"
         ]
-    }
-
-    afterEvaluate {
-        extensions.findByName('kapt')?.arguments {
-            arg("dagger.gradle.incremental", "enabled")
-        }
     }
 }

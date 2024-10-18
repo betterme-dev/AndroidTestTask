@@ -1,6 +1,10 @@
 apply plugin: 'com.android.library'
 apply from: '../sharedconfigs-include.gradle'
 
+android {
+    namespace 'app.bettermetesttask.featurecommon'
+}
+
 dependencies {
     implementation project(":domain-core")
 

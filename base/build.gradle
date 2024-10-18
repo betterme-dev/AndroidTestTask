@@ -38,12 +38,6 @@ android {
         }
     }
 
-    dexOptions {
-        preDexLibraries = false
-        jumboMode = true
-        javaMaxHeapSize "4g"
-    }
-
     packagingOptions {
         // Multiple libs contain this file -> cause build error
         exclude 'LICENSE.txt'
@@ -69,6 +63,7 @@ android {
             option("-Xmaxerrs", 500)
         }
     }
+    namespace 'app.bettermetesttask'
 }
 
 dependencies {
@@ -107,7 +102,6 @@ dependencies {
     implementation developmentDependencies.stethoOkHttp
 
     debugImplementation developmentDependencies.chucker
-    betaImplementation developmentDependencies.chucker
     releaseImplementation developmentDependencies.chuckerNoOp
     implementation developmentDependencies.timber
     implementation developmentDependencies.threeTenABP

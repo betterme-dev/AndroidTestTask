@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
 apply from: '../sharedconfigs-include.gradle'
 
+android {
+    namespace 'app.bettermetesttask.tests.androidcommon'
+}
 dependencies {
     implementation kotlinDependencies.kotlinStdLib
 
