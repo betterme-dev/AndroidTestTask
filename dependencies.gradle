@@ -47,8 +47,9 @@ ext {
 
     // Unit-tests
     jUnitVer = '4.13.1'
-    mockitoVer = '3.6.0'
-    mockitoKotlinVer = '2.2.0'
+    mockitoVer = '5.14.2'
+    mockitoInlineVer = '5.2.0'
+    mockitoKotlinVer = '5.4.0'
     assertJVer = '3.18.0'
     jupiterVer = '5.7.0'
 
@@ -131,9 +132,9 @@ ext {
             jUnitVintage            : "org.junit.vintage:junit-vintage-engine:$jupiterVer",
             jupiterParametrized     : "org.junit.jupiter:junit-jupiter-params:$jupiterVer",
             jupiterEngine           : "org.junit.jupiter:junit-jupiter-engine:$jupiterVer",
-            mockitoKotlin           : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVer",
+            mockitoKotlin           : "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVer",
             assertJ                 : "org.assertj:assertj-core:$assertJVer",
-            mockitoInline           : "org.mockito:mockito-inline:$mockitoVer",
+            mockitoInline           : "org.mockito:mockito-inline:$mockitoInlineVer",
             jupiterMockitoRunner    : "org.mockito:mockito-junit-jupiter:$mockitoVer",
             threeTenJvm             : "org.threeten:threetenbp:$threeTenJvmVer"
     ]

@@ -5,8 +5,7 @@ import app.bettermetesttask.domaincore.utils.coroutines.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.TestCoroutineScope
+import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.jupiter.api.extension.AfterEachCallback
@@ -15,8 +14,8 @@ import org.junit.jupiter.api.extension.ExtensionContext
 
 @ExperimentalCoroutinesApi
 class CoroutinesExtension(
-    private val dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
-) : BeforeEachCallback, AfterEachCallback, TestCoroutineScope by TestCoroutineScope(dispatcher) {
+    private val dispatcher: CoroutineDispatcher = StandardTestDispatcher()
+) : BeforeEachCallback, AfterEachCallback {
 
     override fun beforeEach(context: ExtensionContext?) {
         Dispatchers.setMain(dispatcher)
@@ -33,7 +32,6 @@ class CoroutinesExtension(
     }
 
     override fun afterEach(context: ExtensionContext?) {
-        cleanupTestCoroutines()
         Dispatchers.resetMain()
     }
 }
