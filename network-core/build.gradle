@@ -9,9 +9,6 @@ android {
         debug {
             buildConfigField "String", "API_ENDPOINT", "$serverUrl"
         }
-        beta {
-            buildConfigField "String", "API_ENDPOINT", "$serverUrl"
-        }
         release {
             buildConfigField "String", "API_ENDPOINT", "$serverUrl"
         }

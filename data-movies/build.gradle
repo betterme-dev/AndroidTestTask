@@ -27,13 +27,13 @@ dependencies {
     implementation dataDependencies.room
     kapt dataDependencies.roomCompiler
 
-    androidTestImplementation androidTestDependencies.testRunner
-    androidTestImplementation androidTestDependencies.testRules
-    androidTestImplementation androidTestDependencies.supportAnnotations
-    androidTestImplementation androidTestDependencies.testRoom, {
-        exclude group: 'com.android.support'
-    }
-    androidTestImplementation androidTestDependencies.testArchCore
-    androidTestImplementation androidTestDependencies.androidXJunit
+//    androidTestImplementation androidTestDependencies.testRunner
+//    androidTestImplementation androidTestDependencies.testRules
+//    androidTestImplementation androidTestDependencies.supportAnnotations
+//    androidTestImplementation androidTestDependencies.testRoom, {
+//        exclude group: 'com.android.support'
+//    }
+//    androidTestImplementation androidTestDependencies.testArchCore
+//    androidTestImplementation androidTestDependencies.androidXJunit
     testImplementation project(":tests-common")
 }

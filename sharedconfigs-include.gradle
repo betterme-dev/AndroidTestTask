@@ -53,11 +53,12 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(17)
-        }
-    }
+// Uncomment if you're having trouble with version incompatibility
+//    java {
+//        toolchain {
+//            languageVersion = JavaLanguageVersion.of(17)
+//        }
+//    }
 
 
     if (gradle.startParameter.taskNames
