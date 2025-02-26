@@ -1,5 +1,6 @@
 apply from: '../sharedconfigs-include-java.gradle'
 
 dependencies {
+    implementation kotlinDependencies.kotlinStdLib
     implementation kotlinDependencies.coroutinesCore
 }

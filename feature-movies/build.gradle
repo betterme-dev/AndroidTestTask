@@ -1,11 +1,15 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.plugin.compose'
+}
+
 apply from: '../sharedconfigs-include.gradle'
 
 android {
-
     namespace 'app.bettermetesttask.movies'
     buildFeatures {
         viewBinding true
+        compose true
     }
 }
 
@@ -46,4 +50,21 @@ dependencies {
     testImplementation testDependencies.jupiterMockitoRunner
     testImplementation androidTestDependencies.testCoroutines
 
+
+    def composeBom = platform('androidx.compose:compose-bom:2025.02.00')
+    implementation composeBom
+    androidTestImplementation composeBom
+
+    implementation 'androidx.compose.material3:material3'
+
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    implementation 'androidx.compose.material:material-icons-extended'
+    implementation 'androidx.compose.material3.adaptive:adaptive'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7'
+
+    implementation "androidx.compose.compiler:compiler:1.5.15"
+
+    implementation("io.coil-kt.coil3:coil-compose:3.0.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.0")
 }

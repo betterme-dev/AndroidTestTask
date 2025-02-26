@@ -20,7 +20,7 @@ ext {
 
     // DI
     javaXInjectVer = '1'
-    daggerVer = '2.47'
+    daggerVer = '2.55'
 
     // Images
     glideVer = '4.11.0'
@@ -62,6 +62,7 @@ ext {
     ]
 
     kotlinDependencies = [
+            kotlinStdLib        : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVer",
             coroutinesCore      : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVer",
             coroutinesAndroid : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVer"
     ]
