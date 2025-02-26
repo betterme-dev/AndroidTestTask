@@ -22,28 +22,12 @@ ext {
     javaXInjectVer = '1'
     daggerVer = '2.47'
 
-    // Reactive Extensions
-    rxJava2Ver = '2.2.20'
-    rxAndroid2Ver = '2.1.1'
-
-    // Networking
-    okHttpVer = '4.9.0'
-    retrofitVer = '2.9.0'
-
-    // Moshi
-    moshiVer = '1.11.0'
-
     // Images
     glideVer = '4.11.0'
     glideTransformationsVer = '4.3.0'
 
     // Developer-related
     timberVer = '4.7.1'
-    leakCanaryVer = '2.5'
-    stethoVer = '1.5.1'
-    chuckerVer = '3.3.0'
-    threeTenABPVer = '1.3.0'
-    threeTenJvmVer = '1.5.0' //For testing purposes only
 
     // Unit-tests
     jUnitVer = '4.13.1'
@@ -78,19 +62,12 @@ ext {
     ]
 
     kotlinDependencies = [
-            kotlinStdLib        : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVer",
             coroutinesCore      : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVer",
             coroutinesAndroid : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVer"
     ]
 
     developmentDependencies = [
             timber            : "com.jakewharton.timber:timber:$timberVer",
-            leakCanary  : "com.squareup.leakcanary:leakcanary-android:$leakCanaryVer",
-            stetho            : "com.facebook.stetho:stetho:$stethoVer",
-            stethoOkHttp      : "com.facebook.stetho:stetho-okhttp3:$stethoVer",
-            chucker           : "com.github.ChuckerTeam.Chucker:library:$chuckerVer",
-            chuckerNoOp       : "com.github.ChuckerTeam.Chucker:library-no-op:$chuckerVer",
-            threeTenABP       : "com.jakewharton.threetenabp:threetenabp:$threeTenABPVer"
     ]
 
     uiDependencies = [
@@ -108,20 +85,8 @@ ext {
             daggerAndroidProcessor  : "com.google.dagger:dagger-android-processor:$daggerVer"
     ]
 
-    rxDependencies = [
-            rxJava               : "io.reactivex.rxjava2:rxjava:$rxJava2Ver",
-            rxAndroid            : "io.reactivex.rxjava2:rxandroid:$rxAndroid2Ver"
-    ]
-
     dataDependencies = [
-            moshi                   : "com.squareup.moshi:moshi-kotlin:$moshiVer",
-            okHttp                  : "com.squareup.okhttp3:okhttp:$okHttpVer",
-            okHttpInterceptor       : "com.squareup.okhttp3:logging-interceptor:$okHttpVer",
-            retrofit                : "com.squareup.retrofit2:retrofit:$retrofitVer",
-            retrofitMoshiConverter  : "com.squareup.retrofit2:converter-moshi:$retrofitVer",
-            retrofitRxJavaAdapter   : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVer",
             room                    : "androidx.room:room-ktx:$roomVer",
-            roomRxJava              : "androidx.room:room-rxjava2:$roomVer",
             roomCompiler            : "androidx.room:room-compiler:$roomVer"
     ]
 
@@ -136,7 +101,6 @@ ext {
             assertJ                 : "org.assertj:assertj-core:$assertJVer",
             mockitoInline           : "org.mockito:mockito-inline:$mockitoInlineVer",
             jupiterMockitoRunner    : "org.mockito:mockito-junit-jupiter:$mockitoVer",
-            threeTenJvm             : "org.threeten:threetenbp:$threeTenJvmVer"
     ]
 
     androidTestDependencies = [

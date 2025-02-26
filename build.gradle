@@ -6,7 +6,7 @@ buildscript {
     ext.compileSdkVer = 34
     ext.jUnit5Ver = '1.9.3.0'
     ext.navigationComponentVer = '2.8.2'
-    ext.jvmTargetVer = '17'
+    ext.jvmTargetVer = '21'
 
     repositories {
         google()

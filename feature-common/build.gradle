@@ -8,8 +8,6 @@ android {
 dependencies {
     implementation project(":domain-core")
 
-    implementation kotlinDependencies.kotlinStdLib
-
     implementation androidXDependencies.appCompat
     implementation androidXDependencies.design
     implementation androidXDependencies.constraintLayout
@@ -27,11 +25,15 @@ dependencies {
     implementation diDependencies.daggerAndroidSupport
     kapt diDependencies.daggerAndroidProcessor
 
-    implementation rxDependencies.rxJava
-    implementation rxDependencies.rxAndroid
-
-    implementation developmentDependencies.threeTenABP
     implementation developmentDependencies.timber
 
-    testImplementation project(":tests-common")
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.mockitoInline
+    testImplementation testDependencies.assertJ
+    testImplementation testDependencies.jUnitJupiter
+    testImplementation testDependencies.jupiterEngine
+    testImplementation testDependencies.jupiterParametrized
+    testImplementation testDependencies.jupiterMockitoRunner
+    testImplementation androidTestDependencies.testCoroutines
 }

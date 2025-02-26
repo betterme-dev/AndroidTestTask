@@ -14,12 +14,11 @@ abstract class AppModule {
 
         @Provides
         fun provideAppInitializers(
-            stethoInitializer: StethoInitializer,
             timberInitializer: TimberInitializer,
-            appSchedulersInitializer: AppSchedulersInitializer,
+            appDispatchersInitializer: DispatchersInitializer,
             appLifecycleObserversInitializer: AppLifecycleObserversInitializer
         ) = AppInitializers(
-            stethoInitializer, timberInitializer, appSchedulersInitializer, appLifecycleObserversInitializer
+            timberInitializer, appDispatchersInitializer, appLifecycleObserversInitializer
         )
 
         @Provides

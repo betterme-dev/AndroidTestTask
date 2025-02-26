@@ -2,27 +2,17 @@ apply plugin: 'com.android.application'
 apply from: '../sharedconfigs-include.gradle'
 
 android {
+    namespace 'app.bettermetesttask'
 
     defaultConfig {
         applicationId "app.androidtesttask"
         versionCode 1
     }
 
-    signingConfigs {
-        release {
-            Properties rProps = loadSigningProperties('debug_signing.properties')
-            storeFile = file(projectDir.canonicalPath + rProps['STORE_FILE'])
-            storePassword = rProps['STORE_PASSWORD']
-            keyAlias = rProps['KEY_ALIAS']
-            keyPassword = rProps['KEY_PASSWORD']
-        }
-    }
-
     buildTypes {
         debug {
             multiDexEnabled true
             minifyEnabled false
-            signingConfig signingConfigs.release
             crunchPngs false
             debuggable true
         }
@@ -32,44 +22,17 @@ android {
             shrinkResources true
             debuggable false
             crunchPngs true
-            signingConfig signingConfigs.release
-            matchingFallbacks = ['release']
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-
-    packagingOptions {
-        // Multiple libs contain this file -> cause build error
-        exclude 'LICENSE.txt'
-        exclude 'META-INF/rxjava.properties'
-        exclude 'META-INF/LICENSE.md'
-        exclude 'META-INF/LICENSE-notice.md'
-    }
-
-    lintOptions {
-        disable 'InvalidPackage'
-        disable 'GoogleAppIndexingWarning'
-        disable 'RestrictedApi'
-        abortOnError true
-        checkDependencies true
     }
 
     kapt {
         // Avoid kapt mechanism that replaces every unknown type with NonExistentClass (for better dagger errors)
         correctErrorTypes = true
-        javacOptions {
-            // Increase the max count of errors from annotation processors.
-            // Default is 100.
-            option("-Xmaxerrs", 500)
-        }
     }
-    namespace 'app.bettermetesttask'
 }
 
 dependencies {
-    // Network
-    implementation project(":network-core")
-
     // Domain
     implementation project(":domain-core")
     implementation project(":domain-movies")
@@ -80,8 +43,6 @@ dependencies {
     // Features
     implementation project(":feature-common")
     implementation project(":feature-movies")
-
-    implementation kotlinDependencies.kotlinStdLib
 
     implementation androidXDependencies.appCompat
     implementation androidXDependencies.constraintLayout
@@ -98,52 +59,8 @@ dependencies {
     implementation diDependencies.daggerAndroidSupport
     kapt diDependencies.daggerAndroidProcessor
 
-    implementation developmentDependencies.stetho
-    implementation developmentDependencies.stethoOkHttp
-
-    debugImplementation developmentDependencies.chucker
-    releaseImplementation developmentDependencies.chuckerNoOp
     implementation developmentDependencies.timber
-    implementation developmentDependencies.threeTenABP
-
-    implementation dataDependencies.moshi
-    implementation dataDependencies.okHttp
-    implementation dataDependencies.okHttpInterceptor
-    implementation dataDependencies.retrofit
-    implementation dataDependencies.retrofitMoshiConverter
 
     implementation dataDependencies.room
     kapt dataDependencies.roomCompiler
-
-    testImplementation project(":tests-common")
-    testImplementation project(":tests-android-common")
-}
-
-Properties loadSigningProperties(String propertyFileName) {
-    Properties rProps = new Properties()
-    def rpFile = file(propertyFileName)
-    if (rpFile.canRead()) {
-        rProps.load(new FileInputStream(rpFile))
-
-        if (rProps != null && rProps.containsKey('STORE_FILE') && rProps.containsKey('STORE_PASSWORD') &&
-                rProps.containsKey('KEY_ALIAS') && rProps.containsKey('KEY_PASSWORD')) {
-            return rProps
-        } else {
-            throw new Exception(propertyFileName + " found but some entries are missing")
-        }
-    } else {
-        throw new FileNotFoundException(propertyFileName + " not found")
-    }
-}
-
-android.applicationVariants.all { variant ->
-    if (variant.buildType.isMinifyEnabled()) {
-        variant.assembleProvider.get().doLast {
-            copy {
-                from variant.mappingFile
-                into "${rootDir}/base/mappings"
-                rename { String filename -> "mapping-${variant.versionName}.txt" }
-            }
-        }
-    }
 }
