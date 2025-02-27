@@ -5,6 +5,7 @@
     app:startDestination="@+id/fragmentSplash">
 
     <include app:graph="@navigation/movies_graph" />
+    <include app:graph="@navigation/movies_graph_compose" />
 
     <fragment
         android:id="@+id/fragmentSplash"
@@ -13,6 +14,13 @@
         <action
             android:id="@+id/action_show_movies"
             app:destination="@+id/movies_graph"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/root_graph"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_show_compose_movies"
+            app:destination="@+id/movies_graph_compose"
             app:launchSingleTop="true"
             app:popUpTo="@id/root_graph"
             app:popUpToInclusive="true" />

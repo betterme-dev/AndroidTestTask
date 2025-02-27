@@ -46,7 +46,6 @@ import app.bettermetesttask.featurecommon.injection.viewmodel.SimpleViewModelPro
 import app.bettermetesttask.movies.sections.MoviesState
 import app.bettermetesttask.movies.sections.MoviesViewModel
 import coil3.compose.AsyncImage
-//import coil3.compose.AsyncImage
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -74,6 +73,8 @@ class MoviesComposeFragment : Fragment(), Injectable {
                 val viewState by viewModel.moviesStateFlow.collectAsState()
                 MoviesComposeScreen(viewState, likeMovie = { movie ->
                     viewModel.likeMovie(movie)
+                }, viewLoaded = {
+                    viewModel.loadMovies()
                 })
             }
         }
@@ -81,7 +82,12 @@ class MoviesComposeFragment : Fragment(), Injectable {
 }
 
 @Composable
-private fun MoviesComposeScreen(moviesState: MoviesState, likeMovie: (Movie) -> Unit) {
+private fun MoviesComposeScreen(
+    moviesState: MoviesState,
+    likeMovie: (Movie) -> Unit,
+    viewLoaded: () -> Unit
+) {
+    viewLoaded()
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -168,5 +174,5 @@ private fun PreviewsMoviesComposeScreen() {
                 liked = index % 2 == 0,
             )
         }
-    ), likeMovie = {})
+    ), likeMovie = {}, viewLoaded = {})
 }
