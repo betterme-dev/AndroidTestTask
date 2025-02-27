@@ -11,6 +11,11 @@ ext {
     browserVer = '1.2.0'
     workManagerVer = '2.4.0'
 
+    // Compose
+    composeCompilerVer = '1.5.15'
+    composeBomVer = '2025.02.00'
+    composeViewModelVer = '2.8.7'
+
     // Coroutines
     coroutinesVer = '1.9.0'
 
@@ -25,6 +30,7 @@ ext {
     // Images
     glideVer = '4.11.0'
     glideTransformationsVer = '4.3.0'
+    coilVer = '3.0.0'
 
     // Developer-related
     timberVer = '4.7.1'
@@ -46,62 +52,62 @@ ext {
 
     // Dependencies
     androidXDependencies = [
-            appCompat           : "androidx.appcompat:appcompat:$appCompatVer",
-            design              : "com.google.android.material:material:$materialVer",
-            recyclerView        : "androidx.recyclerview:recyclerview:$recyclerViewVer",
-            constraintLayout    : "androidx.constraintlayout:constraintlayout:$constraintLayoutVer",
-            lifecycleExtensions : "androidx.lifecycle:lifecycle-extensions:$lifecycleVer",
-            lifecycle           : "androidx.lifecycle:lifecycle-common-java8:$lifecycleVer",
-            viewModelKtx        : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVer",
-            navigationFragment  : "androidx.navigation:navigation-fragment-ktx:$navigationComponentVer",
-            navigationUi        : "androidx.navigation:navigation-ui-ktx:$navigationComponentVer",
-            androidKtx          : "androidx.core:core-ktx:$androidKtxVer",
-            fragmentKtx         : "androidx.fragment:fragment-ktx:$fragmentVer",
-            browser             : "androidx.browser:browser:$browserVer",
-            workManagerKtx      : "androidx.work:work-runtime-ktx:$workManagerVer"
+            appCompat          : "androidx.appcompat:appcompat:$appCompatVer",
+            design             : "com.google.android.material:material:$materialVer",
+            recyclerView       : "androidx.recyclerview:recyclerview:$recyclerViewVer",
+            constraintLayout   : "androidx.constraintlayout:constraintlayout:$constraintLayoutVer",
+            lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:$lifecycleVer",
+            lifecycle          : "androidx.lifecycle:lifecycle-common-java8:$lifecycleVer",
+            viewModelKtx       : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVer",
+            navigationFragment : "androidx.navigation:navigation-fragment-ktx:$navigationComponentVer",
+            navigationUi       : "androidx.navigation:navigation-ui-ktx:$navigationComponentVer",
+            androidKtx         : "androidx.core:core-ktx:$androidKtxVer",
+            fragmentKtx        : "androidx.fragment:fragment-ktx:$fragmentVer",
+            browser            : "androidx.browser:browser:$browserVer",
+            workManagerKtx     : "androidx.work:work-runtime-ktx:$workManagerVer"
     ]
 
     kotlinDependencies = [
-            kotlinStdLib        : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVer",
-            coroutinesCore      : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVer",
-            coroutinesAndroid : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVer"
+            kotlinStdLib     : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVer",
+            coroutinesCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVer",
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVer"
     ]
 
     developmentDependencies = [
-            timber            : "com.jakewharton.timber:timber:$timberVer",
+            timber: "com.jakewharton.timber:timber:$timberVer",
     ]
 
     uiDependencies = [
-            glide                   : "com.github.bumptech.glide:glide:$glideVer",
-            glideCompiler           : "com.github.bumptech.glide:compiler:$glideVer",
-            glideTransformations    : "jp.wasabeef:glide-transformations:$glideTransformationsVer"
+            glide               : "com.github.bumptech.glide:glide:$glideVer",
+            glideCompiler       : "com.github.bumptech.glide:compiler:$glideVer",
+            glideTransformations: "jp.wasabeef:glide-transformations:$glideTransformationsVer"
     ]
 
     diDependencies = [
-            javaxInject             : "javax.inject:javax.inject:$javaXInjectVer",
-            dagger                  : "com.google.dagger:dagger:$daggerVer",
-            daggerCompiler          : "com.google.dagger:dagger-compiler:$daggerVer",
-            daggerAndroid           : "com.google.dagger:dagger-android:$daggerVer",
-            daggerAndroidSupport    : "com.google.dagger:dagger-android-support:$daggerVer",
-            daggerAndroidProcessor  : "com.google.dagger:dagger-android-processor:$daggerVer"
+            javaxInject           : "javax.inject:javax.inject:$javaXInjectVer",
+            dagger                : "com.google.dagger:dagger:$daggerVer",
+            daggerCompiler        : "com.google.dagger:dagger-compiler:$daggerVer",
+            daggerAndroid         : "com.google.dagger:dagger-android:$daggerVer",
+            daggerAndroidSupport  : "com.google.dagger:dagger-android-support:$daggerVer",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$daggerVer"
     ]
 
     dataDependencies = [
-            room                    : "androidx.room:room-ktx:$roomVer",
-            roomCompiler            : "androidx.room:room-compiler:$roomVer"
+            room        : "androidx.room:room-ktx:$roomVer",
+            roomCompiler: "androidx.room:room-compiler:$roomVer"
     ]
 
     testDependencies = [
-            jUnit                   : "junit:junit:$jUnitVer",
-            mockito                 : "org.mockito:mockito-core:$mockitoVer",
-            jUnitJupiter            : "org.junit.jupiter:junit-jupiter-api:$jupiterVer",
-            jUnitVintage            : "org.junit.vintage:junit-vintage-engine:$jupiterVer",
-            jupiterParametrized     : "org.junit.jupiter:junit-jupiter-params:$jupiterVer",
-            jupiterEngine           : "org.junit.jupiter:junit-jupiter-engine:$jupiterVer",
-            mockitoKotlin           : "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVer",
-            assertJ                 : "org.assertj:assertj-core:$assertJVer",
-            mockitoInline           : "org.mockito:mockito-inline:$mockitoInlineVer",
-            jupiterMockitoRunner    : "org.mockito:mockito-junit-jupiter:$mockitoVer",
+            jUnit               : "junit:junit:$jUnitVer",
+            mockito             : "org.mockito:mockito-core:$mockitoVer",
+            jUnitJupiter        : "org.junit.jupiter:junit-jupiter-api:$jupiterVer",
+            jUnitVintage        : "org.junit.vintage:junit-vintage-engine:$jupiterVer",
+            jupiterParametrized : "org.junit.jupiter:junit-jupiter-params:$jupiterVer",
+            jupiterEngine       : "org.junit.jupiter:junit-jupiter-engine:$jupiterVer",
+            mockitoKotlin       : "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVer",
+            assertJ             : "org.assertj:assertj-core:$assertJVer",
+            mockitoInline       : "org.mockito:mockito-inline:$mockitoInlineVer",
+            jupiterMockitoRunner: "org.mockito:mockito-junit-jupiter:$mockitoVer",
     ]
 
     androidTestDependencies = [
@@ -113,6 +119,22 @@ ext {
             testArchCore      : "androidx.arch.core:core-testing:$coreTestingVer",
             androidXJunit     : "androidx.test.ext:junit:$androidXJUnitVer",
             testWorkManager   : "androidx.work:work-testing:$workManagerVer",
-            testCoroutines     : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVer",
+            testCoroutines    : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVer",
+    ]
+
+    composeDependencies = [
+            compiler      : "androidx.compose.compiler:compiler:$composeCompilerVer",
+            bom           : "androidx.compose:compose-bom:$composeBomVer",
+            material3     : "androidx.compose.material3:material3",
+            toolingPreview: "androidx.compose.ui:ui-tooling-preview",
+            tooling       : "androidx.compose.ui:ui-tooling",
+            icons         : "androidx.compose.material:material-icons-extended",
+            adaptive      : "androidx.compose.material3.adaptive:adaptive",
+            viewModel     : "androidx.lifecycle:lifecycle-viewmodel-compose:$composeViewModelVer",
+    ]
+
+    coilDependencies = [
+            coil       : "io.coil-kt.coil3:coil-compose:$coilVer",
+            coilNetwork: "io.coil-kt.coil3:coil-network-okhttp:$coilVer",
     ]
 }

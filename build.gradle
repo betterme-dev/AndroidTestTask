@@ -20,7 +20,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
         classpath "de.mannodermaus.gradle.plugins:android-junit5:$jUnit5Ver"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationComponentVer"
-        classpath 'org.jetbrains.kotlin:compose-compiler-gradle-plugin:2.0.0'
+        classpath "org.jetbrains.kotlin:compose-compiler-gradle-plugin:$kotlinVer"
     }
 }
 
