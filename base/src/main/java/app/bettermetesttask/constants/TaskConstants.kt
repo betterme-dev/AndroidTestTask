@@ -10,5 +10,5 @@ enum class TaskVariance {
  * while COMPOSE means that MoviesComposeFragment is used instead.
  */
 object TaskConstants {
-    val TASK_VARIANCE = TaskVariance.COMPOSE
+    val TASK_VARIANCE = TaskVariance.XML
 }
