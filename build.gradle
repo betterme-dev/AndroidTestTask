@@ -1,12 +1,12 @@
 buildscript {
-    ext.kotlinVer = '2.0.21'
+    ext.kotlinVer = '2.0.0'
     ext.buildToolsVer = '34.0.0'
     ext.minSdkVer = 28
     ext.targetSdkVer = 34
     ext.compileSdkVer = 34
     ext.jUnit5Ver = '1.9.3.0'
     ext.navigationComponentVer = '2.8.2'
-    ext.jvmTargetVer = '17'
+    ext.jvmTargetVer = '21'
 
     repositories {
         google()
@@ -20,6 +20,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
         classpath "de.mannodermaus.gradle.plugins:android-junit5:$jUnit5Ver"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationComponentVer"
+        classpath "org.jetbrains.kotlin:compose-compiler-gradle-plugin:$kotlinVer"
     }
 }
 

@@ -1,11 +1,15 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.plugin.compose'
+}
+
 apply from: '../sharedconfigs-include.gradle'
 
 android {
-
     namespace 'app.bettermetesttask.movies'
     buildFeatures {
         viewBinding true
+        compose true
     }
 }
 
@@ -15,7 +19,6 @@ dependencies {
 
     implementation project(":feature-common")
 
-    implementation kotlinDependencies.kotlinStdLib
     implementation kotlinDependencies.coroutinesCore
 
     implementation androidXDependencies.appCompat
@@ -35,9 +38,31 @@ dependencies {
     implementation diDependencies.daggerAndroidSupport
     kapt diDependencies.daggerAndroidProcessor
 
-    implementation developmentDependencies.threeTenABP
     implementation developmentDependencies.timber
 
-    testImplementation project(":tests-common")
-    testImplementation project(":tests-android-common")
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.mockitoInline
+    testImplementation testDependencies.assertJ
+    testImplementation testDependencies.jUnitJupiter
+    testImplementation testDependencies.jupiterEngine
+    testImplementation testDependencies.jupiterParametrized
+    testImplementation testDependencies.jupiterMockitoRunner
+    testImplementation androidTestDependencies.testCoroutines
+
+    def composeBom = platform(composeDependencies.bom)
+    implementation composeBom
+    androidTestImplementation composeBom
+
+    implementation composeDependencies.material3
+    implementation composeDependencies.compiler
+    implementation composeDependencies.toolingPreview
+    implementation composeDependencies.icons
+    implementation composeDependencies.adaptive
+    implementation composeDependencies.viewModel
+
+    debugImplementation composeDependencies.tooling
+
+    implementation(coilDependencies.coil)
+    implementation(coilDependencies.coilNetwork)
 }

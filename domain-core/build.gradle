@@ -2,10 +2,5 @@ apply from: '../sharedconfigs-include-java.gradle'
 
 dependencies {
     implementation kotlinDependencies.kotlinStdLib
-
-    implementation rxDependencies.rxJava
     implementation kotlinDependencies.coroutinesCore
-
-    implementation developmentDependencies.threeTenABP
-
 }

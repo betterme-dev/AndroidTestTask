@@ -12,7 +12,7 @@ import javax.inject.Inject
 class MoviesRepositoryImpl @Inject constructor(
     private val localStore: MoviesLocalStore,
     private val mapper: MoviesMapper
-): MoviesRepository {
+) : MoviesRepository {
 
     private val restStore = MoviesRestStore()
 

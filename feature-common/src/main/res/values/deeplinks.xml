@@ -2,6 +2,7 @@
 <resources>
     <!-- Movies link -->
     <string name="movies_deep_link" translatable="false">"https://bettermetesttask.app/movies"</string>
+    <string name="movies_deep_link_compose" translatable="false">"https://bettermetesttask.app/movies-compose"</string>
 
     <!-- Favorites link -->
     <string name="favorites_deep_link" translatable="false">"https://bettermetesttask.app/favorites"</string>

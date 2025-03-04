@@ -10,5 +10,13 @@ dependencies {
     implementation diDependencies.dagger
     kapt diDependencies.daggerCompiler
 
-    testImplementation project (":tests-common")
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.mockitoInline
+    testImplementation testDependencies.assertJ
+    testImplementation testDependencies.jUnitJupiter
+    testImplementation testDependencies.jupiterEngine
+    testImplementation testDependencies.jupiterParametrized
+    testImplementation testDependencies.jupiterMockitoRunner
+    testImplementation androidTestDependencies.testCoroutines
 }

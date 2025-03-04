@@ -7,7 +7,6 @@ import app.bettermetesttask.datamovies.injection.MoviesDataModule
 import app.bettermetesttask.featurecommon.injection.modules.CommonModule
 import app.bettermetesttask.injection.modules.AppModule
 import app.bettermetesttask.injection.modules.HomeActivityModule
-import app.bettermetesttask.networkcore.injection.NetworkCoreModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -16,7 +15,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [AppModule::class, AndroidSupportInjectionModule::class, HomeActivityModule::class,
-        CommonModule::class, NetworkCoreModule::class, MoviesDataModule::class]
+        CommonModule::class, MoviesDataModule::class]
 )
 interface AppComponent {
 

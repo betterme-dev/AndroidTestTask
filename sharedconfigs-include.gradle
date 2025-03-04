@@ -19,8 +19,6 @@ apply plugin: 'kotlin-kapt'
  *
  * */
 
-ext.isCiServer = System.getenv().containsKey("CI_BUILD")
-
 android {
 
     buildFeatures {
@@ -49,8 +47,12 @@ android {
 
     // Forcing proper java version across all the builds
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+
+    kotlinOptions {
+        jvmTarget = jvmTargetVer
     }
 
 // Uncomment if you're having trouble with version incompatibility
@@ -60,14 +62,9 @@ android {
 //        }
 //    }
 
-
     if (gradle.startParameter.taskNames
             .collect { item -> item.contains("UnitTestKotlin") }
             .contains(true)) {
-        kotlinOptions.jvmTarget = jvmTargetVer
-    }
-
-    compileOptions {
         kotlinOptions.jvmTarget = jvmTargetVer
     }
 
@@ -89,15 +86,5 @@ android {
             }
             jacocoOptions.taskGenerationEnabled = false
         }
-    }
-
-}
-
-allprojects {
-    tasks.withType(JavaCompile).all {
-        options.compilerArgs += [
-                '-Xlint:-deprecation',
-                "-Xlint:unchecked"
-        ]
     }
 }

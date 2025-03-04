@@ -2,19 +2,15 @@ apply plugin: 'com.android.library'
 apply from: '../sharedconfigs-include.gradle'
 
 android {
-
     namespace 'app.bettermetesttask.datamovies'
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
-    implementation project(":network-core")
     implementation project(":domain-core")
     implementation project(":domain-movies")
 
     implementation kotlinDependencies.kotlinStdLib
+
     implementation developmentDependencies.timber
 
     implementation kotlinDependencies.coroutinesCore
@@ -23,17 +19,16 @@ dependencies {
     implementation diDependencies.dagger
     kapt diDependencies.daggerCompiler
 
-    implementation dataDependencies.moshi
     implementation dataDependencies.room
     kapt dataDependencies.roomCompiler
 
-//    androidTestImplementation androidTestDependencies.testRunner
-//    androidTestImplementation androidTestDependencies.testRules
-//    androidTestImplementation androidTestDependencies.supportAnnotations
-//    androidTestImplementation androidTestDependencies.testRoom, {
-//        exclude group: 'com.android.support'
-//    }
-//    androidTestImplementation androidTestDependencies.testArchCore
-//    androidTestImplementation androidTestDependencies.androidXJunit
-    testImplementation project(":tests-common")
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.mockitoInline
+    testImplementation testDependencies.assertJ
+    testImplementation testDependencies.jUnitJupiter
+    testImplementation testDependencies.jupiterEngine
+    testImplementation testDependencies.jupiterParametrized
+    testImplementation testDependencies.jupiterMockitoRunner
+    testImplementation androidTestDependencies.testCoroutines
 }
